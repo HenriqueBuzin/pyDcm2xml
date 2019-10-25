@@ -24,6 +24,7 @@ for r, d, f in os.walk(path):
 				value = str(data_element.value) # ok
 				lenght = str(len(value)) # ok
 				texto.append("\t\t<element vr=\"" + vr + "\" tag=\"" + tag + "\" vm=\"" + vm + "\" name=\"" + name + "\" len=\"" + lenght + "\">" + value + "</element>\n")
+			texto.append("\t</data>\n")
 
 arq.writelines(texto)
 arq.close()
