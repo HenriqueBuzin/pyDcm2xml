@@ -13,7 +13,7 @@ for r, d, f in os.walk(path):
 	for file in f:
 		if '.dcm' in file:
 			path = str(r) + "\\" + str(file)
-			texto.append("\t<data src=\"" + path + "\">\n")
+			texto.append("<data src=\"" + path + "\">\n")
 			ds = pydicom.filereader.dcmread(path)
 			for key in ds.dir():
 				data_element = ds.data_element(key)
@@ -24,8 +24,8 @@ for r, d, f in os.walk(path):
 					name = str(data_element.name)
 					value = str(data_element.value)
 					lenght = str(len(value))
-					texto.append("\t\t<element vr=\"" + vr + "\" tag=\"" + tag + "\" vm=\"" + vm + "\" name=\"" + name + "\" len=\"" + lenght + "\">" + value + "</element>\n")
-			texto.append("\t</data>\n")
+					texto.append("\t<element vr=\"" + vr + "\" tag=\"" + tag + "\" vm=\"" + vm + "\" name=\"" + name + "\" len=\"" + lenght + "\">" + value + "</element>\n")
+			texto.append("</data>\n")
 
 arq.writelines(texto)
 arq.close()
