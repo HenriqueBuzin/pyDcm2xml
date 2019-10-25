@@ -17,12 +17,12 @@ for r, d, f in os.walk(path):
 			ds = pydicom.filereader.dcmread(path)
 			for key in ds.dir():
 				data_element = ds.data_element(key)
-				vr = str(data_element.VR) # ok
-				tag = str(data_element.tag) # ok
-				vm = str(data_element.VM) # ok
-				name = str(data_element.name) # ok
-				value = str(data_element.value) # ok
-				lenght = str(len(value)) # ok
+				vr = str(data_element.VR)
+				tag = str(data_element.tag)
+				vm = str(data_element.VM)
+				name = str(data_element.name)
+				value = str(data_element.value)
+				lenght = str(len(value))
 				texto.append("\t\t<element vr=\"" + vr + "\" tag=\"" + tag + "\" vm=\"" + vm + "\" name=\"" + name + "\" len=\"" + lenght + "\">" + value + "</element>\n")
 			texto.append("\t</data>\n")
 
