@@ -18,12 +18,13 @@ for r, d, f in os.walk(path):
 			for key in ds.dir():
 				data_element = ds.data_element(key)
 				vr = str(data_element.VR)
-				tag = str(data_element.tag)
-				vm = str(data_element.VM)
-				name = str(data_element.name)
-				value = str(data_element.value)
-				lenght = str(len(value))
-				texto.append("\t\t<element vr=\"" + vr + "\" tag=\"" + tag + "\" vm=\"" + vm + "\" name=\"" + name + "\" len=\"" + lenght + "\">" + value + "</element>\n")
+				if vr != "OW":
+					tag = str(data_element.tag)
+					vm = str(data_element.VM)
+					name = str(data_element.name)
+					value = str(data_element.value)
+					lenght = str(len(value))
+					texto.append("\t\t<element vr=\"" + vr + "\" tag=\"" + tag + "\" vm=\"" + vm + "\" name=\"" + name + "\" len=\"" + lenght + "\">" + value + "</element>\n")
 			texto.append("\t</data>\n")
 
 arq.writelines(texto)
